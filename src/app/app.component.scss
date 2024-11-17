@@ -1,0 +1,93 @@
+header {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 1rem 2rem;
+    height: 8vh;
+    width: 100%;
+    background-color: #224f34;
+    opacity: 0.85;
+    color: ivory;
+    font-size: xx-large;
+}
+
+.navbar {
+    width: 100%;
+    align-items: center;
+}
+
+#listmenu-button {
+    display: flex;
+    width: fit-content;
+    padding: 0 5px !important;
+    border-radius: 5px;
+    border: 2px solid ivory;
+
+    span {
+        font-size: 32px;
+    }
+
+    ::ng-deep.material-icons {
+        font-size: 42px;
+        height: 42px;
+        width: 42px;
+    }
+     ::ng-deep.dropdown_item {
+        font-size: 28px;
+        height: 28px;
+        width: 28px;
+    }
+}
+
+.map-wrapper {
+    border: 6px solid gray;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+    height: 83vh;
+    width: 90vw;
+}
+
+.about-button {
+    font-size: large;
+    border: 3px solid ivory;
+    padding: 5px 25px;
+}
+
+.about-card {
+    width: 100%;
+    font-size: large;
+    color: white;
+    padding: 15px;
+
+    a {
+        color: ivory;
+        font-weight: bold;
+    }
+    #avatar-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin: 0 2rem;
+    }
+    #opera-image {
+        width: 80%;
+        margin-top: 1rem;
+        border-radius: 5px;
+    }
+
+    .bottom-links {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 2px solid ivory;
+
+        a {
+        text-decoration: none;
+        border: 1px solid white;
+        padding: 5px 8px;
+        margin: auto;
+        }
+    }
+}  

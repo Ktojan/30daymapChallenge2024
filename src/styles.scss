@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@import '../node_modules/leaflet/dist/leaflet.css'; 
+
+$theme: mat.define-theme();
+
+body {
+    font-family: 'Roboto', "Helvetica Neue", sans-serif;
+    position: relative;
+    align-content: center;
+    margin: auto;
+    font-family: sans-serif;
+    background-image: url('../public/images/opera.jpg');
+    background-size: cover;
+}
+
+.flex {
+    display: flex;
+}
+
+.between {
+    justify-content: space-between;
+}
+
+// --------  Some rules rewriting mapbox-gl.css styles ------- //
+.mapboxgl-map {
+    border-radius: 20px;
+}
+
+.mapboxgl-ctrl-top-right {
+    max-width: 200px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+
+    .mapboxgl-ctrl {
+        margin: 5px auto;
+    }    
+    .mapboxgl-ctrl-group button {
+        width: auto;
+        height: 70px;
+    }
+}
+
+

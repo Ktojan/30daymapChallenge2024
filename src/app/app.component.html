@@ -1,0 +1,67 @@
+<header>
+  <nav class="navbar flex between">
+    <div>
+      <h3>30DayMapChallenge 2024: Demos
+      </h3>
+    </div>
+    <button mat-icon-button [matMenuTriggerFor]="menu" id="listmenu-button">
+      <mat-icon>more_vert</mat-icon><span> Days&Maps </span><mat-icon>map</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button *ngFor="let item of menuLinks" [disabled]="item.disabled"
+       [routerLink]="item.routerLink" mat-menu-item>
+        <mat-icon>{{item.icon}}</mat-icon>
+        <span>{{item.label}}</span>
+      </button>
+    </mat-menu>
+    <button (click)="clickAbout('1500ms', '1000ms')" mat-fab extended class="about-button">ABOUT</button>
+  </nav>
+</header>
+
+<article class="map-wrapper">
+  <router-outlet></router-outlet>
+</article>
+
+<ng-template #aboutModal>
+  <mat-dialog-content style="scrollbar-width: none;">
+    <mat-card class="about-card" appearance="outlined">
+      <mat-card-header>
+        <div>
+          <img id="avatar-image" src="images/profile.jpg" alt="Odessa Opera theater model">
+        </div>
+        <mat-card-title>Mapping demo with 3D</mat-card-title>
+        <mat-card-subtitle>by Andrey Karpovich <br>karpovich.andrey&#64;gmail.com</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <img id="opera-image" src="images/opera-model.jpeg" alt="Odessa Opera theater model">
+        <p>
+          It's a demo for <a href="https://30daymapchallenge.com/" target="_blank">30DayMapChallenge</a> (day: nov 18
+          2024): drone flight 3D-imitation.</p>
+        <figure>The task description was:
+          <blockquote><i>implement a map with depth. Add a third dimension to your map, today's about thinking beyond
+              flat surfaces.</i>
+          </blockquote>
+        </figure>
+        <p>
+          I choosed the National Theater of Opera and Ballet in my homeland city Odessa. 🇺🇦
+          The idea was to repeat the camera trajectory of a real drone-footage via virtual Mapbox Camera API (some math
+          needed, frankly). After a motion finishes, the map becomes interactive. Starts with sound!
+        </p>
+        Libs and stuff I've used:
+        <ul>
+          <li><a href="https://www.mapbox.com/">Mapbox GL API and docs</a></li>
+          <li><a href="https://docs.mapbox.com/mapbox-gl-js/example/free-camera-point/">Mapbox animate camera with 3D
+              tutorial</a></li>
+          <li><a href="https://github.com/Wykks/ngx-mapbox-gl">Genuine wrapper for Angular by Wykks</a></li>
+          <li><a href="https://www.youtube.com/watch?v=t0DYY_MoK_c">The drone footage from youtube by Denis
+              Chubchenko</a></li>
+          <li>Angular 18, Angular Material for UI and theming</li>
+        </ul>
+      </mat-card-content>
+      <mat-card-actions class="bottom-links">
+        <a href="https://github.com/Ktojan/MEAN-mapbox-playground/tree/30daysChall_3D" target="_blank">Github code</a>
+        <a target="_blank" href="https://mean-mapbox-playground.vercel.app/ ">Live Demo</a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-dialog-content>
+</ng-template>

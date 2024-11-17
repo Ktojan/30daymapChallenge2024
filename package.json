@@ -1,9 +1,9 @@
 {
   "name": "30daymap-challenge2024",
-  "version": "0.0.0",
+  "version": "24.1.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 3000",
     "build": "ng build",
     "watch": "ng build --watch --configuration development"
   },
@@ -14,9 +14,13 @@
     "@angular/compiler": "^18.2.0",
     "@angular/core": "^18.2.0",
     "@angular/forms": "^18.2.0",
+    "@angular/material": "^18.2.8",
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
+    "leaflet": "^1.9.4",
+    "mapbox-gl": "^2.15.0",
+    "ngx-mapbox-gl": "^11.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
