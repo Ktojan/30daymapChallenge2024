@@ -25,4 +25,8 @@ Run `npm start` and open `http://localhost:3000/`.
 
 Run `ng build` to build the project. The build artefacts will be stored in the `dist/` directory.
 
+## Day 18: 3D
 ![demo30days_1](https://github.com/user-attachments/assets/109b5b55-a46e-46b3-8b41-8eae8a62d6b8)
+
+## Day 24: Only circles
+![demoday24](https://github.com/user-attachments/assets/9b5a4741-4bb8-408e-b747-fb001466a5a7)
