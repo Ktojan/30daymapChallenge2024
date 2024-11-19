@@ -1,0 +1,96 @@
+@import '../SidePanel//leaflet-sidepanel.css';
+
+/// ------   Map area  ------- ///
+
+:host {
+    height: 100%;
+    width: 100%;
+    background-image: url('../../../public/images/tabuk_circles.png');
+    background-size: cover;  
+}
+
+#map {
+    margin: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.leaflet-container {
+    font-size: 1rem;
+}
+
+.current {
+    min-width: 180px;
+    min-height: 150px;
+}
+
+#tab-about {
+    font-size: 14px;
+    text-align: justify;
+
+
+    #about-img {
+        width: 110%;
+        margin-left: -1rem;
+    }
+}
+
+#tab-draw {
+    color: #5f00c0; //todo when theming
+
+    .shape-selector {
+        margin: 1rem 0;
+
+        .mat-icon {
+            height: 32px;
+            width: 32px;
+            color: black;
+        }
+    }
+}
+
+
+/// Sidepanel
+/// 
+.sidepanel {
+    width: 345px !important;
+}
+
+.sidebar-tab-link svg {
+    margin-right: 1rem;
+}
+
+.sidepanel-content-wrapper {
+    overflow: auto;
+
+    img {
+        width: 100%;
+    }
+}
+
+.draw-interface {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    button {
+        margin-right: 1rem;
+        padding: 0 12px;
+    }
+}
+
+.save-colors {
+    width: 56px;
+    height: 28px;
+    float: left;
+    margin-right: 28px;
+}
+
+::ng-deep mat-slide-toggle {
+    margin-left: 1rem;
+}
+
+::ng-deep .mat-mdc-dialog-content {
+    display: flex !important;
+    flex-direction: column;
+}

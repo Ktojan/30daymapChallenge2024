@@ -1,0 +1,91 @@
+
+<div id="map" #map class="usual-border">
+    <div id="panelID" class="sidepanel" aria-label="side panel" aria-hidden="false">
+         <div class="sidepanel-inner-wrapper">
+              <nav class="sidepanel-tabs-wrapper" aria-label="sidepanel tab navigation">
+                   <ul class="sidepanel-tabs">
+                        <li class="sidepanel-tab">
+                             <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-1">
+                                  <svg xmlns="http://www.w3.org/2000/svg"  width="24px" height="24px" viewBox="0 -960 960 960" fill="currentColor"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                             About</a>
+                        </li>
+                        <li class="sidepanel-tab">
+                             <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-2">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 -960 960 960"  fill="currentColor"><path d="M240-520q-83 0-141.5-58.5T40-720q0-84 58.5-142T240-920q84 0 142 58t58 142q0 83-58 141.5T240-520Zm0-80q51 0 85.5-35t34.5-85q0-51-34.5-85.5T240-840q-50 0-85 34.5T120-720q0 50 35 85t85 35ZM640-40q-33 0-56.5-23.5T560-120v-200q0-33 23.5-56.5T640-400h200q33 0 56.5 23.5T920-320v200q0 33-23.5 56.5T840-40H640Zm0-80h200v-200H640v200Zm100-100ZM240-720Zm469 68L308-252q5 12 8.5 25t3.5 27q0 50-34.5 85T200-80q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q14 0 27 3.5t25 8.5l400-401q-5-12-8.5-24.5T640-760q0-51 35-85.5t85-34.5q51 0 85.5 34.5T880-760q0 50-34.5 85T760-640q-14 0-26.5-3.5T709-652Z"/></svg>
+                             Draw</a>
+                        </li>
+                   </ul>
+              </nav>
+              <div class="sidepanel-content-wrapper">
+                   <div class="sidepanel-content">
+                        <div class="sidepanel-tab-content" data-tab-content="tab-1" id="tab-about">
+                             <p>This is mapping (GIS) demo Angular 18 app, based on the Leaflet.js and few plugins
+                              (<a href="https://github.com/JamesLMilner/terra-draw/tree/main" target="_blank">terra-draw</a>, <a
+                                   href="https://github.com/maxwell-ilai/Leaflet.SidePanel/tree/main" target="_blank">leaflet-sidepanel</a>).
+                              The idea was to display interactive map of particular Saudi Arabia region, and visualize possible future
+                              farming activities (adding new "agro-circles").</p>
+                              <img src="images/tabuk_circles.png" id="about-img" />
+                              <br>
+                              <img src="images/tabuk_circles_2.png" id="about-img" />
+                              <hr>
+                              <div style="text-align: center;font-size: large;"><a href="https://github.com/Ktojan/30daymapChallenge2024/tree/master"
+                                        target="_blank">Github code</a>
+                              </div>
+                                </div>
+                        <div class="sidepanel-tab-content flex" data-tab-content="tab-2" id="tab-draw">
+                            <div class="flex between" style="align-items: center;">
+                                <h3 style="margin-right: 2rem;">Draw Mode</h3>
+                                <mat-slide-toggle [(ngModel)]="isDrawing" (change)="switchEditMode($event)"></mat-slide-toggle>
+                           </div>
+                           <div *ngIf="isDrawing" class="draw-interface">
+                               <div class="flex">
+                                       <button *ngIf="!config.isDrawingLayer; else whenDrawing" (click)="startNewLayer()" mat-fab extended color="primary">
+                                            <mat-icon>add_box</mat-icon>
+                                            Create new
+                                       </button>
+                                       <button *ngIf="!config.isDrawingLayer && config.currentDrawObj?.features?.length > 0" (click)="exportJSONtoFIle()" mat-fab extended color="warn">
+                                            Export to geoJSON
+                                       </button>
+                                       <ng-template #whenDrawing>
+                                            <button (click)="openSaveObjectDialog()" mat-fab extended color="accent">
+                                                 <mat-icon>save</mat-icon>
+                                                 Save
+                                            </button>
+                                            <button (click)="clearEdited()" mat-fab extended color="warn">
+                                                 <mat-icon>layers_clear</mat-icon>
+                                                 Clear
+                                            </button>
+                                       </ng-template>
+                                  </div>
+                             </div>
+                             </div>
+                   </div>
+              </div>
+         </div>
+         <div class="sidepanel-toggle-container">
+              <button class="sidepanel-toggle-button" type="button" aria-label="toggle side panel"></button>
+         </div>
+    </div>
+</div>
+
+<ng-template #saveDrawnModal>
+    <h2 mat-dialog-title>New object properties</h2>
+    <mat-dialog-content>
+      <mat-form-field>
+        <mat-label>Name (blank for auto-generated)</mat-label>
+        <input matInput [(ngModel)]="config.activeDrawName" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Choose a fill color</mat-label>
+        <mat-select [(ngModel)]="config.activeDrawColor">
+         @for (color of config.saveNewDrawColors; track color) {
+           <mat-option [value]="color"><i [style.background]="color" class="save-colors"></i>{{color}}</mat-option>
+         }
+       </mat-select>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</ng-template>
