@@ -1,20 +1,22 @@
 <header>
   <nav class="navbar flex between">
     <div>
-      <h3>30DayMapChallenge 2024: Demos
+      <h3>30DayMapChallenge 2024 {{selectedDayLabel}}
       </h3>
     </div>
-    <button mat-icon-button [matMenuTriggerFor]="menu" id="listmenu-button">
-      <mat-icon>more_vert</mat-icon><span> Days&Maps </span><mat-icon>map</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button *ngFor="let item of menuLinks" [disabled]="item.disabled"
-       [routerLink]="item.routerLink" mat-menu-item>
-        <mat-icon>{{item.icon}}</mat-icon>
-        <span>{{item.label}}</span>
+    <div class="flex">
+      <button mat-icon-button [matMenuTriggerFor]="menu" id="listmenu-button">
+        <mat-icon>more_vert</mat-icon><span> Days&Maps </span><mat-icon>map</mat-icon>
       </button>
-    </mat-menu>
-    <button (click)="clickAbout('1500ms', '1000ms')" mat-fab extended class="about-button">ABOUT</button>
+      <mat-menu #menu="matMenu">
+        <button *ngFor="let item of menuLinks" [disabled]="item.disabled"
+         [routerLink]="item.routerLink" mat-menu-item>
+          <mat-icon>{{item.icon}}</mat-icon>
+          <span>{{item.label}}</span>
+        </button>
+      </mat-menu>
+      <button *ngIf="displayAbout" (click)="clickAbout('1500ms', '1000ms')" mat-fab extended class="about-button">ABOUT</button>
+    </div>
   </nav>
 </header>
 
