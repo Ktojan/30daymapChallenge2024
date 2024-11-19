@@ -10,6 +10,11 @@ Libs and plugins I used:
 Day18:
 - <a href="https://docs.mapbox.com/mapbox-gl-js/example/free-camera-point/">Mapbox animate camera with 3D</a>
 
+Day24:
+- <a href="https://leafletjs.com/">Leaflet</a>
+- <a href="https://github.com/JamesLMilner/terra-draw/tree/main" target="_blank">terra-draw</a>
+- <a href="https://github.com/maxwell-ilai/Leaflet.SidePanel/tree/main" target="_blank">leaflet-sidepanel</a>
+
 Live demo on [Vercel ](https://30daymap-challenge2024.vercel.app/)
 
 ## Development server
