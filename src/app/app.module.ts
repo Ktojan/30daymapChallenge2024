@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Day183DComponent } from './day18-3d/day18.component';
-import { Day20Component } from './day20-osm/day20.component';
+import { MoveAndStreamWS } from './moveAndStreamWS/moveAndStreamWS.component';
 import { Day24Component } from './day24-circular/day24.component';
 // --------------------------- MAPBOX stuff and files ----------------- //
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
@@ -21,13 +21,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule,  MatDialogActions,  MatDialogClose,  MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
+import { AnimatePointComponent } from './animate-point/animate-point.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Day183DComponent,
-    Day20Component,
+    MoveAndStreamWS,
     Day24Component,
+    AnimatePointComponent,
     NotFoundPageComponent
   ],
   imports: [

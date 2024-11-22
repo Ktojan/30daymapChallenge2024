@@ -29,10 +29,14 @@ export class AppComponent {
       hasOwnAbout: true     
     },    
     {
-      routerLink: '/day26',
-      icon: 'grid_4x4',
-      label: 'Day 26 - Projections',
-      disabled: true
+      routerLink: '/moveAndStreamWS',
+      icon: 'settings_input_antenna',
+      label: 'Stream location via websocket',
+    },    
+    {
+      routerLink: '/point',
+      icon: 'flight',
+      label: 'Animate flight',
     }    
   ]
 
@@ -41,7 +45,6 @@ export class AppComponent {
       filter((event: any) => event instanceof NavigationEnd),
       map((event: NavigationEnd) => event.url)
     ).subscribe(link => {
-      console.log(link);
       const item = this.menuLinks.find(el => el.routerLink === link);
       this.selectedDayLabel = item?.label || '';
       this.displayAbout = !item.hasOwnAbout;
