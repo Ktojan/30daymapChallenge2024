@@ -1,0 +1,32 @@
+:host{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+#map {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+
+
+#motion-control {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.toggler {
+  border-radius: 12px;
+  border: 3px solid brown;
+  padding: 12px;
+  background-color: ivory;
+  opacity: 0.8;
+}
+
+::ng-deep.mdc-label {
+  color: brown;
+  font-size: xx-large;
+}
