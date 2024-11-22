@@ -24,19 +24,5 @@ body {
     border-radius: 20px;
 }
 
-.mapboxgl-ctrl-top-right {
-    max-width: 200px;
-    right: 5px;
-    display: flex;
-    flex-direction: column;
-
-    .mapboxgl-ctrl {
-        margin: 5px auto;
-    }    
-    .mapboxgl-ctrl-group button {
-        width: auto;
-        height: 70px;
-    }
-}
 
 
