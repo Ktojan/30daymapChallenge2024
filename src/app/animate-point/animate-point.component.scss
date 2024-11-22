@@ -1,0 +1,20 @@
+:host{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+#mapAnimate {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+
+#start-button {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  z-index: 1000;
+  font-size: xx-large;
+  padding: 10px 16px;
+}
