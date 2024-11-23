@@ -1,0 +1,63 @@
+<div id="motion-control">
+  <mat-slide-toggle class="toggler animation-toggler" [checked]="!animationIsStopped"
+   (change)="toggleCameraAnimation($event)">Start/stop mission</mat-slide-toggle>
+  <mat-slide-toggle class="toggler" [checked]="activeWayPoints == wayPointsBasilica"
+   (change)="toggleMission($event, 'wayPointsBasilica', 0)">Mission 1: around Basilica</mat-slide-toggle>
+  <mat-slide-toggle class="toggler" [checked]="activeWayPoints == wayPointsMaximum"
+   (change)="toggleMission($event, 'wayPointsMaximum', 0)">Mission 2: all the square perimeter</mat-slide-toggle>
+  <mat-slide-toggle class="toggler" [checked]="activeWayPoints == wayPointsObelisque"
+   (change)="toggleMission($event, 'wayPointsObelisque', 1)">Mission 3: around Obelisque</mat-slide-toggle>
+</div>
+<mgl-map id="dronemap"
+  [style]="config.mapStyle"
+  [zoom]="[config.currentZoom]" 
+  [center]="config.center"
+  [pitch]="[config.pitch]"
+  [bearing]="[config.bearing]"
+  [accessToken]="config.token"
+  (mapCreate)="mapCreation($event)"
+>
+
+<!-- --------------   MARKERS -------------------- -->
+<ng-container *ngFor="let marker of customMarkers">
+  <mgl-marker #myMarker
+    [lngLat]="marker.coords"
+    [id]="marker.name"
+    [draggable]="true"
+    (markerDragEnd)="onDragEnd($event)">
+    <div [style.color]="marker.color || 'red'">{{marker.name}}</div>
+  <mat-icon [style.color]="marker.color || 'red'"
+   class="marker-icon" aria-hidden="false" fontIcon="star">       
+  </mat-icon>
+</mgl-marker>
+<!-- <mgl-popup [marker]="myMarker">
+  <p><b>{{marker.name}}</b></p>
+  <p *ngIf="marker.coords">coordinates: {{marker.coords.join(', ')}}</p> </mgl-popup>   -->
+</ng-container>
+
+<ng-container *ngIf="activeWayPoints && activeWayPoints.length > 0">
+  <ng-container *ngFor="let point of activeWayPoints; index as index">
+    <mgl-marker
+      [lngLat]="point.coords"
+      [draggable]="true"
+      (markerDragEnd)="onDragEnd($event)">
+      <div [style.color]="'blue'">{{index+1}}</div>
+    <mat-icon [style.color]="'blue'"
+     class="marker-icon" aria-hidden="false" fontIcon="location_on">
+    </mat-icon>
+  </mgl-marker>
+  </ng-container>
+</ng-container>
+
+<!-- --------------   LAYERS -------------------- -->
+    <mgl-layer 
+      id="3d-buildings"
+      source="composite"
+      sourceLayer="building"
+      [filter]="['==', 'extrude', 'true']"
+      type="fill-extrusion"
+      [before]="'housenum-label'"
+      [paint]="config.paints.d3buildings">
+   </mgl-layer>  
+
+   
