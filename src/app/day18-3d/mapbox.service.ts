@@ -10,7 +10,7 @@ import { environment } from '../../../env';
 }
 
 export const Default3DbuildingsConfig = {
-    'fill-extrusion-color': '#F2ECE2',
+    'fill-extrusion-color': '#742728',
     'fill-extrusion-height': [
         'interpolate',
         ['linear'],
@@ -29,6 +29,6 @@ export const Default3DbuildingsConfig = {
         15.05,
         ['get', 'min_height']
     ],
-    'fill-extrusion-opacity': 0.8
+    'fill-extrusion-opacity': 0.9
 }
 
