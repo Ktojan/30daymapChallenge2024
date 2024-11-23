@@ -30,3 +30,6 @@ Run `ng build` to build the project. The build artefacts will be stored in the `
 
 ## Day 24: Only circles
 ![demoday24](https://github.com/user-attachments/assets/9b5a4741-4bb8-408e-b747-fb001466a5a7)
+
+## Drone mission imitation
+![drone-mission_screen](https://github.com/user-attachments/assets/0c2adb72-a3c9-4606-914e-105ea04c866f)
