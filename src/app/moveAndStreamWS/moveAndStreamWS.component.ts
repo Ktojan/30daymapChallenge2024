@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
-import * as turf from 'turf';
+import * as turf from '@turf/turf';
 import { environment } from '../../../env';
 import { routes } from './routes';
 
@@ -111,8 +111,8 @@ export class MoveAndStreamWS {
     const animationDuration = 9000;
     const cameraAltitude = 2000;
     // get the overall distance of each route so we can interpolate along them
-    const routeDistance = turf.lineDistance(turf.lineString(targetRoute));
-    const cameraRouteDistance = turf.lineDistance(
+    const routeDistance = turf.length(turf.lineString(targetRoute));
+    const cameraRouteDistance = turf.length(
       turf.lineString(cameraRoute)
     );
 
