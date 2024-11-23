@@ -22,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule,  MatDialogActions,  MatDialogClose,  MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
 import { AnimatePointComponent } from './animate-point/animate-point.component';
+import { DroneMissionComp } from './drone-mission-mimic/drone-mission.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AnimatePointComponent } from './animate-point/animate-point.component';
     MoveAndStreamWS,
     Day24Component,
     AnimatePointComponent,
+    DroneMissionComp,
     NotFoundPageComponent
   ],
   imports: [

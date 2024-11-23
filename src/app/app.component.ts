@@ -32,11 +32,13 @@ export class AppComponent {
       routerLink: '/moveAndStreamWS',
       icon: 'settings_input_antenna',
       label: 'Stream location via websocket',
+      hasOwnAbout: true     
     },    
     {
       routerLink: '/point',
       icon: 'flight',
       label: 'Animate flight',
+      hasOwnAbout: true     
     }    
   ]
 
@@ -46,6 +48,7 @@ export class AppComponent {
       map((event: NavigationEnd) => event.url)
     ).subscribe(link => {
       const item = this.menuLinks.find(el => el.routerLink === link);
+      if (!item) return;
       this.selectedDayLabel = item?.label || '';
       this.displayAbout = !item.hasOwnAbout;
   })
